@@ -1,1 +1,7 @@
-# erpnextmaasnew
+## Erpnextmaas
+
+ERPNext Mass
+
+#### License
+
+mit
