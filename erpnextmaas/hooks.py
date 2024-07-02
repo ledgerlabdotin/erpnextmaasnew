@@ -69,6 +69,11 @@ doctype_js = {
 # 	"filters": "erpnextmaas.utils.jinja_filters"
 # }
 
+jinja = {
+	"methods": [
+		"erpnextmaas.erpnextmaas.hook_events.utils.get_amount_in_ar"
+	]
+}
 # Installation
 # ------------
 
