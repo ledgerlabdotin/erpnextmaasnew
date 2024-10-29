@@ -1,0 +1,456 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-10-29 21:58:49.543878",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ggo8",
+  "naming_series",
+  "customer_name",
+  "start_date",
+  "end_date",
+  "preferred_language",
+  "column_break_xsqm",
+  "status",
+  "consultant",
+  "priority",
+  "product",
+  "approach",
+  "section_break_txes",
+  "setupinstallation_column",
+  "licenses_setup",
+  "e_invoice_setup",
+  "user_matrix_setup",
+  "tallykite",
+  "tallygraphs",
+  "bizanalyst",
+  "others",
+  "column_break_skaf",
+  "licenses_setup_date",
+  "e_invoice_setup_date",
+  "user_matrix_setup_date",
+  "tallykite_date",
+  "tallygraphs_date",
+  "bizanalyst_date",
+  "others_date",
+  "column_break_jsip",
+  "check_dgud",
+  "check_skwf",
+  "payroll_list_upload",
+  "check_icpm",
+  "small_text_ksif",
+  "column_break_wwxm",
+  "item_list_upload",
+  "ledger_list_upload_date",
+  "payroll_list_upload_date",
+  "check_icpm_date",
+  "column_break_lpou",
+  "invoice",
+  "check_customization",
+  "check_zbtb",
+  "column_break_hskd",
+  "invoice_date",
+  "check_customization_date",
+  "activities_tab",
+  "open_activities_html",
+  "all_activities_section",
+  "all_activities_html",
+  "notes_tab",
+  "notes_html",
+  "notes_text",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_ggo8",
+   "fieldtype": "Section Break",
+   "label": "Customer Information"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "label": "OBG Number"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "preferred_language",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Preferred Language",
+   "options": "Language",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_xsqm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Yet to Start",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Yet to Start\nIn Progress\nCompleted\nDelayed\nWaiting for User"
+  },
+  {
+   "fieldname": "consultant",
+   "fieldtype": "Link",
+   "label": "Consultant (Requested by)",
+   "options": "User"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "High\nLow\nMedium"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product / Services",
+   "link_filters": "[[\"Item\",\"item_group\",\"=\",\"Licenses\"]]",
+   "options": "Item"
+  },
+  {
+   "fieldname": "approach",
+   "fieldtype": "Select",
+   "label": "Approach",
+   "options": "Fresh\nPower User"
+  },
+  {
+   "fieldname": "section_break_txes",
+   "fieldtype": "Section Break",
+   "label": "Tasks"
+  },
+  {
+   "fieldname": "setupinstallation_column",
+   "fieldtype": "Column Break",
+   "label": "Setup/Installation"
+  },
+  {
+   "default": "0",
+   "fieldname": "licenses_setup",
+   "fieldtype": "Check",
+   "label": "Licenses Setup"
+  },
+  {
+   "default": "0",
+   "fieldname": "e_invoice_setup",
+   "fieldtype": "Check",
+   "label": "E Invoice Setup"
+  },
+  {
+   "default": "0",
+   "fieldname": "tallygraphs",
+   "fieldtype": "Check",
+   "label": "TallyGraphs"
+  },
+  {
+   "default": "0",
+   "fieldname": "bizanalyst",
+   "fieldtype": "Check",
+   "label": "BizAnalyst"
+  },
+  {
+   "default": "0",
+   "fieldname": "others",
+   "fieldtype": "Check",
+   "label": "Others"
+  },
+  {
+   "fieldname": "column_break_jsip",
+   "fieldtype": "Column Break",
+   "label": "Data Migration"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_dgud",
+   "fieldtype": "Check",
+   "label": "Item List Upload"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_skwf",
+   "fieldtype": "Check",
+   "label": "Ledger List Upload"
+  },
+  {
+   "default": "0",
+   "fieldname": "payroll_list_upload",
+   "fieldtype": "Check",
+   "label": "Payroll List Upload"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_icpm",
+   "fieldtype": "Check",
+   "label": "Others"
+  },
+  {
+   "default": "0",
+   "depends_on": "check_icpm",
+   "fieldname": "small_text_ksif",
+   "fieldtype": "Small Text",
+   "mandatory_depends_on": "check_icpm"
+  },
+  {
+   "fieldname": "column_break_lpou",
+   "fieldtype": "Column Break",
+   "label": "Customization"
+  },
+  {
+   "default": "0",
+   "depends_on": "check_customization",
+   "fieldname": "check_zbtb",
+   "fieldtype": "Small Text",
+   "mandatory_depends_on": "check_customization"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "activities_tab",
+   "fieldtype": "Tab Break",
+   "label": "Activities",
+   "options": "ta"
+  },
+  {
+   "fieldname": "open_activities_html",
+   "fieldtype": "HTML",
+   "label": "Open Activities HTML"
+  },
+  {
+   "fieldname": "all_activities_section",
+   "fieldtype": "Section Break",
+   "label": "All Activities"
+  },
+  {
+   "fieldname": "all_activities_html",
+   "fieldtype": "HTML",
+   "label": "All Activities HTML"
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "notes_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Notes",
+   "no_copy": 1,
+   "options": "CRM Note"
+  },
+  {
+   "fieldname": "column_break_skaf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wwxm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hskd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "licenses_setup",
+   "fieldname": "licenses_setup_date",
+   "fieldtype": "Date",
+   "label": "Licenses Setup Date",
+   "mandatory_depends_on": "licenses_setup"
+  },
+  {
+   "depends_on": "e_invoice_setup",
+   "fieldname": "e_invoice_setup_date",
+   "fieldtype": "Date",
+   "label": "E Invoice Setup Date",
+   "mandatory_depends_on": "e_invoice_setup"
+  },
+  {
+   "depends_on": "user_matrix_setup",
+   "fieldname": "user_matrix_setup_date",
+   "fieldtype": "Date",
+   "label": "User Matrix Setup Date",
+   "mandatory_depends_on": "user_matrix_setup"
+  },
+  {
+   "depends_on": "tallykite",
+   "fieldname": "tallykite_date",
+   "fieldtype": "Date",
+   "label": "TallyKite Date",
+   "mandatory_depends_on": "tallykite"
+  },
+  {
+   "depends_on": "tallygraphs",
+   "fieldname": "tallygraphs_date",
+   "fieldtype": "Date",
+   "label": "TallyGraphs Date",
+   "mandatory_depends_on": "tallygraphs"
+  },
+  {
+   "depends_on": "bizanalyst",
+   "fieldname": "bizanalyst_date",
+   "fieldtype": "Date",
+   "label": "BizAnalyst Date",
+   "mandatory_depends_on": "bizanalyst"
+  },
+  {
+   "depends_on": "others",
+   "fieldname": "others_date",
+   "fieldtype": "Date",
+   "label": "Others Date",
+   "mandatory_depends_on": "others"
+  },
+  {
+   "default": "0",
+   "fieldname": "user_matrix_setup",
+   "fieldtype": "Check",
+   "label": "User Matrix Setup"
+  },
+  {
+   "default": "0",
+   "fieldname": "tallykite",
+   "fieldtype": "Check",
+   "label": "TallyKite"
+  },
+  {
+   "depends_on": "check_dgud",
+   "fieldname": "item_list_upload",
+   "fieldtype": "Date",
+   "label": "Item List Upload",
+   "mandatory_depends_on": "check_dgud"
+  },
+  {
+   "depends_on": "check_skwf",
+   "fieldname": "ledger_list_upload_date",
+   "fieldtype": "Date",
+   "label": "Ledger List Upload Date",
+   "mandatory_depends_on": "check_skwf"
+  },
+  {
+   "depends_on": "payroll_list_upload",
+   "fieldname": "payroll_list_upload_date",
+   "fieldtype": "Date",
+   "label": "Payroll List Upload Date",
+   "mandatory_depends_on": "payroll_list_upload"
+  },
+  {
+   "depends_on": "check_icpm",
+   "fieldname": "check_icpm_date",
+   "fieldtype": "Date",
+   "label": "Others Date",
+   "mandatory_depends_on": "check_icpm"
+  },
+  {
+   "default": "0",
+   "fieldname": "invoice",
+   "fieldtype": "Check",
+   "label": "Invoice"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_customization",
+   "fieldtype": "Check",
+   "label": "Other"
+  },
+  {
+   "depends_on": "invoice",
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date",
+   "mandatory_depends_on": "invoice"
+  },
+  {
+   "depends_on": "check_customization",
+   "fieldname": "check_customization_date",
+   "fieldtype": "Date",
+   "label": "Others Date",
+   "mandatory_depends_on": "check_customization"
+  },
+  {
+   "fieldname": "notes_html",
+   "fieldtype": "HTML",
+   "label": "Notes HTML"
+  },
+  {
+   "fieldname": "notes_text",
+   "fieldtype": "Long Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2024-10-29 23:52:25.665912",
+ "modified_by": "Administrator",
+ "module": "Erpnextmaas",
+ "name": "Onboarding",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Yellow",
+   "title": "Yet to Start"
+  },
+  {
+   "color": "Red",
+   "title": "Delayed"
+  },
+  {
+   "color": "Blue",
+   "title": "Ongoing"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  }
+ ],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

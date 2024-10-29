@@ -143,6 +143,12 @@ jinja = {
 # Scheduled Tasks
 # ---------------
 
+scheduler_events = {
+	"daily": [
+		"erpnextmaas.erpnextmaas.doctype.onboarding.onboarding.update_status_date_pass"
+	],
+}
+
 # scheduler_events = {
 # 	"all": [
 # 		"erpnextmaas.tasks.all"
