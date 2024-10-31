@@ -10,6 +10,33 @@ from frappe.model.document import Document
 
 
 class Onboarding(Document):
+	def validate(self):
+		self.add_onboarding_reference()
+
+	def add_onboarding_reference(self):
+		if self.sales_invoice:
+			if not frappe.db.exists(
+				"Sales Invoice", {"onboarding": self.name, "name": self.sales_invoice}
+			):
+				si = frappe.get_doc("Sales Invoice", self.sales_invoice)
+				si.db_set("onboarding", self.name)
+			if frappe.db.exists(
+				"Sales Invoice",
+				{"onboarding": self.name, "name": ["!=", self.sales_invoice]},
+			):
+				invoices = frappe.get_all(
+					"Sales Invoice",
+					{"onboarding": self.name, "name": ["!=", self.sales_invoice]},
+				)
+				for d in invoices:
+					si = frappe.get_doc("Sales Invoice", d.name)
+					si.db_set("onboarding", "")
+		else:
+			si_list = frappe.get_all("Sales Invoice", {"onboarding": self.name})
+			for d in si_list:
+				si = frappe.get_doc("Sales Invoice", d.name)
+				si.db_set("onboarding", "")
+
 	@frappe.whitelist()
 	def add_note(self, note):
 		self.append(
