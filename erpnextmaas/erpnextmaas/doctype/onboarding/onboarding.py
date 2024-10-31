@@ -3,30 +3,20 @@
 
 
 import frappe
-import json
-from frappe.model.document import Document
+from frappe.desk.notifications import notify_mentions
+from frappe.utils import today, now
 from frappe import _
-from frappe.contacts.address_and_contact import load_address_and_contact
-from frappe.email.inbox import link_communication_to_document
-from frappe.model.mapper import get_mapped_doc
-from frappe.query_builder import DocType, Interval
-from frappe.query_builder.functions import Now
-from frappe.utils import flt, get_fullname, today
-
-from erpnext.crm.utils import (
-	CRMNote,
-	copy_comments,
-	link_communications,
-	link_open_events,
-	link_open_tasks,
-)
-
-from erpnext.setup.utils import get_exchange_rate
-from erpnext.utilities.transaction_base import TransactionBase
+from frappe.model.document import Document
 
 
 class Onboarding(Document):
-	pass
+	@frappe.whitelist()
+	def add_note(self, note):
+		self.append(
+			"notes", {"note": note, "added_by": frappe.session.user, "added_on": now()}
+		)
+		self.save()
+		notify_mentions(self.doctype, self.name, note)
 
 
 def update_status_date_pass():

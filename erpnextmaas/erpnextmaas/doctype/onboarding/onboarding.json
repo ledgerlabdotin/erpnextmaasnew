@@ -59,7 +59,6 @@
   "all_activities_html",
   "notes_tab",
   "notes_html",
-  "notes_text",
   "notes"
  ],
  "fields": [
@@ -388,17 +387,12 @@
    "fieldname": "notes_html",
    "fieldtype": "HTML",
    "label": "Notes HTML"
-  },
-  {
-   "fieldname": "notes_text",
-   "fieldtype": "Long Text",
-   "label": "Notes"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2024-10-29 23:52:25.665912",
+ "modified": "2024-10-31 17:57:57.300216",
  "modified_by": "Administrator",
  "module": "Erpnextmaas",
  "name": "Onboarding",
