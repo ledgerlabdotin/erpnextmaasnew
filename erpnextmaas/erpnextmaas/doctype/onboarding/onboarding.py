@@ -4,7 +4,7 @@
 
 import frappe
 from frappe.desk.notifications import notify_mentions
-from frappe.utils import today, now
+from frappe.utils import today, now, cstr
 from frappe import _
 from frappe.model.document import Document
 
@@ -44,6 +44,21 @@ class Onboarding(Document):
 		)
 		self.save()
 		notify_mentions(self.doctype, self.name, note)
+
+	@frappe.whitelist()
+	def edit_note(self, note, row_id):
+		for d in self.notes:
+			if cstr(d.name) == row_id:
+				d.note = note
+				d.db_update()
+
+	@frappe.whitelist()
+	def delete_note(self, row_id):
+		for d in self.notes:
+			if cstr(d.name) == row_id:
+				self.remove(d)
+				break
+		self.save()
 
 
 def update_status_date_pass():

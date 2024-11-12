@@ -41,7 +41,7 @@ erpnext.utils.CRMNotes = class CRMNotes {
 		let me = this;
 		let _add_note = () => {
 			var d = new frappe.ui.Dialog({
-				title: __("Add a Note 10"),
+				title: __("Add a Note"),
 				fields: [
 					{
 						label: "Note",
@@ -83,7 +83,7 @@ erpnext.utils.CRMNotes = class CRMNotes {
 		let row_content = $(row).find(".content").html();
 		if (row_content) {
 			var d = new frappe.ui.Dialog({
-				title: __("Edit Note 110"),
+				title: __("Edit Note"),
 				fields: [
 					{
 						label: "Note",
