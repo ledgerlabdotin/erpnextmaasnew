@@ -165,3 +165,27 @@ erpnext.OnboardingController = class OnboardingController extends frappe.ui.form
 };
 
 extend_cscript(cur_frm.cscript, new erpnext.OnboardingController({ frm: cur_frm }));
+
+
+frappe.ui.form.on("Onboarding", {
+	setup: function (frm) {
+		frm.set_query("sales_invoice", function () {
+			return {
+				filters: {
+					customer: frm.doc.customer_name,
+				},
+			};
+		});
+	},
+	// onload: function (frm) {
+	// 	if (frm.doc.customer_name) {
+	// 		frm.set_query("sales_invoice", function () {
+	// 			return {
+	// 				filters: {
+	// 					customer: frm.doc.customer_name
+	// 				},
+	// 			};
+	// 		});
+	// 	}
+	// }
+});
